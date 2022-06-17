@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "anonymous Pro";
+    src: url("AnonymousPro-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "anonymous Pro";
+    src: url("AnonymousPro-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+.background{
+    background: url("../images/plans-background.jpg") center/cover;
+    filter: grayscale(35%);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+main{
+    padding-top: 3rem;
+}
+.plan{
+    overflow: hidden;
+    position: relative;
+    margin: 1rem 0px;
+    border: 4px solid #0e4f1f;
+    border-left: none;
+    width: 80%;
+}
+.plan:hover{
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-color:#ff5454;
+}
+.plan>a{
+    padding: 2rem;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+.plan__badge{
+    width: 12rem;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    color: white;
+    background: #ff5454;
+    transform: rotate(45deg) translate(3.6rem,-1rem);/*using transfor prop to change element like rotate(with deg)and move using translateX,Y on x and y axis*/
+    transform-origin: center;/*seting the orgin of rotation etc*/
+}
+.plan-title2{
+    color: #979797;
+     
+}
+.plan-descreption{
+    background: white;
+    padding: 0.8rem;
+    border: 1px solid #0e4f1f;
+    font-size: 1.3rem;
+    color: #0e4f1f;
+}
+
+.clear-fix{
+    clear: both;
+}
+#premium .plan-title1{
+    color: white;
+}
+#free{
+    background: rgba(213,255,220,0.95);
+}
+#plus{
+    background: rgba(234,252,237, 0.95);
+    float: right;
+    border-right:none;
+    border-left:solid #0e4f1f 4px ;
+    text-align: right;
+
+}
+#plus:hover,
+#plus:active{
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-color:#ff5454;
+}
+#premium{
+    background: rgba(14,79,31, 0.95);
+   
+}
+@media(min-width:40rem){
+    main{
+      max-width: 80.8rem;
+      margin:3rem auto;
+    }
+}
+@media(min-width:80.8rem){
+    .plan{
+        border-left: #0e4f1f 4px solid;
+    }
+    #plus{
+        border-right:solid #0e4f1f 4px ;
+    }  
+   
+
+}

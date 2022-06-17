@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,700;1,400&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,700;1,400&family=Roboto:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,700;1,400&display=swap');
+ /*BEM for class names*/
+ /*Block__element--modifier*/
+ /*for eg: main-nav__item--ctad*/
+
+
+:root{/*Targets the whole document(smilar to global decleartion)*/
+    --dark-green:#0e4f1f;/*Creating var using --varname:value;*/
+    --high-pink:#ff1b68;/*creating another variable*/
+}
+
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    margin: 0px;
+    font-family: "Montserrat",sans-serif;
+    padding-top: 3.6rem;/*to avoid body overlapping with header*/
+
+}
+@supports(display: grid){/*checking if display grid is supported in the browser */
+    body{
+        display: grid;/*using grid since we know that there is browser support*/
+        grid-template-rows: 3.6rem auto fit-content(8rem);
+    
+        grid-template-areas: "header"
+                             "main"
+                             "footer";
+        height: 100%;
+        padding-top: 0;/*Changing the padding back to 0 as we avoid overlapping with grid*/
+    }
+}
+main{
+    grid-area:main;
+    /* margin-top: 3.5rem; */
+    /* min-height:calc(100vh - 3.5rem - 7.1rem); */
+}
+.backdrop{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+}
+
+
+.main-header{
+    position: fixed;
+    z-index: 10;
+    top:0px;
+    left: 0px;
+    background: #2ddf5c;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: 100%;
+    display: -webkit-flex;/*used for olde browser version which dont know flexs*/
+    display: -webkit-box;/*used for olde browser version which dont know flexs*/
+    display: -ms-flexbox;/*used for olde browser version which dont know flexs*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+@media(min-width:40rem){
+    .main-header{
+        padding: 0.5rem;   
+    }
+    
+}
+.toggle-button {
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+  }
+  @media(min-width:40rem){
+      .toggle-button{
+          display: none;
+      }
+  }
+  
+  .toggle-button:focus {
+    outline: none;
+  }
+  
+  .toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: black;
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+.main-header__brand{
+    text-decoration: none;
+    color: var(--dark-green,#0e4f1f)/*using the var created insde varfunction(varname,falbacks)*/;
+    font-weight: bold;
+    font-size:1.4rem;
+    vertical-align: middle;
+}
+
+.main-header__brand img{
+    height: 2.5rem;
+}
+.main-nav{
+    display: none;
+}
+
+.main-nav__items{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex; 
+}
+.main-nav__item{
+    margin: 0px 1rem;       
+}
+
+.main-nav__item a{
+    color: var(--dark-green)/*using the variable darkgreen*/;
+    text-decoration:none;
+    font-weight: bold; 
+    font-size: 1.2rem;
+    padding:0.2rem 0px;
+}
+.main-nav__item--cta{
+    /*Using the key frame created by animation property*/
+    animation: wiggle 400ms 2s 8 none ;/*use wiggle(KF) for 3sec after waiting for 2sec.repeat wiggle 8 times */
+}
+.main-nav__item--cta a{
+    color: white;
+    background: var(--high-pink)/*using the car --high-pink*/;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+}
+.main-nav__item a:hover,
+.main-nav__item a:active{
+    color: white;
+    border-bottom: white solid 5px;
+    
+}
+.main-nav__item--cta a:hover,
+.main-nav__item--cta:active{
+    color: var(--high-pink)/*using the var --high-pink*/;
+    background: white;
+    border: none;
+    
+}
+@media(min-width:40rem){
+    .main-nav{
+        display: flex; 
+    }
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 80%;
+    height: 100vh;
+}
+  
+.mobile-nav__items {
+    width: 90%;
+    height: 100%;
+    list-style: none;
+    margin:0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.mobile-nav__item {
+    margin: 1rem 0;
+}
+  
+.mobile-nav__item a {
+    font-size: 1.7rem;
+    color: #0e4f1f;
+    text-decoration:none;
+    font-weight: bold; 
+    padding:0.2rem 0px;
+}
+.mobile-nav__item--cta a{
+    color: white;
+    background: var(--high-pink)/*using the var --high-pink*/;
+    border-radius: 8px;
+    padding: 0.4rem 0.9rem;
+}
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta:active{
+    color: var(--high-pink)/*using the var --high-pink*/;
+    background: white;
+    border: none;
+}
+    
+.main-footer{
+    grid-area: footer;
+    background: black;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+.main-footer__links{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-footer__link{
+    margin: 0.5rem 0;
+}
+@media(min-width:40rem){
+    .main-footer__link{
+        margin: 0px 1rem;
+    }
+    .main-footer__links{
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+.main-footer__link a{
+    color: white;
+    text-decoration: none;
+}
+.main-footer__link a:hover{
+    color: #ccc;
+}
+.button{
+    background: #0e4f1f;
+    color: white;
+    font: inherit;
+    border: 1.5px solid var(--dark-green)/*using the var --dark-green*/;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button:hover,
+.button:active{
+    color: var(--dark-green);
+    background: white;
+}
+.button:focus{
+    outline: none;
+}
+.button[disabled] {
+    background: #ccc;
+    border-color:#a4a4a4 ;
+    color: #a4a4a4;
+    cursor: not-allowed;
+}
+.open{
+    display: block !important;
+    opacity: 1 !important;/*Showing the modal*/
+    transform: translateY(0) !important;/*Switching it back to original position*/
+}
+@keyframes wiggle{/*Creating a key fram for our animation*/
+    0%{/*The inital postion */
+        transform: rotatez(0);/*The property transform at 0 deg initially*/
+    }
+    
+    50%{/*Halfway at the animation*/
+        transform: rotatez(-10deg)
+        ;/*The prop transform at -10deg at half the time of animation*/
+    }
+
+    100%{/*The final postion*/
+        transform: rotatez(10deg) ;/*The property transform at 10 deg in final postion*/
+    }
+    /*Now the change between from and to can ba animated by using keyframe on the desired selector*/
+}

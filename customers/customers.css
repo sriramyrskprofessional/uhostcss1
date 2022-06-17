@@ -1,0 +1,94 @@
+.testimonial {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .testimonial:first-of-type {
+    margin-top: 6rem;
+  }
+  .testimonial__image-container{
+      overflow: hidden;
+      width: 65%;
+      max-width: 40rem;
+      transform:skew(20deg);/*using transform prop to skew elment on +/- __ deg in x,y,z axis  */
+      transform-origin: center;
+      box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+  }
+  .testimonial__image{
+      width: 100%;
+      vertical-align:middle;
+      height: 100%;
+      transform: skew(-20deg) scale(1.25);/*Reversing the container skew,Using scale function to increase img size wihtout aspect ratio(can also be shinked)*/
+
+  }
+  .testimonial__info {
+    text-align: right;
+    padding: 0.9rem;
+    width: 100%;
+  }
+  #customer-1:hover .testimonial__image-container,
+  #customer-2:hover .testimonial__image-container{
+    animation: flip-customer 1s forwards; /*using the fli-customer animation for 1sec and final postion should be kept as it is*/
+  }
+  #customer-2.testimonial {
+    text-align: right;
+  }
+  
+  #customer-2 .testimonial__info {
+    text-align: left;
+  }
+  
+  .testimonial__name {
+    margin: 0.2rem;
+    color: #ff5454;
+    font-size: 2rem;
+  }
+  
+  .testimonial__subtitle {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  
+  .testimonial__subtitle a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .testimonial__subtitle a:hover,
+  .testimonial__subtitle a:active {
+    color: #7a7a7a;
+  }
+  
+  .testimonial__text {
+    margin: 0.2rem;
+  }
+  @media(min-width:40rem){
+    .testimonial {
+      max-width: 80.8rem;
+      margin: 3rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .testimonial__image-container{
+      width: 60%;
+      max-width: 40rem;
+    }
+    .testimonial__info {
+      width: 30%;
+    }
+    
+  }
+  @keyframes flip-customer{/*Creating a new keyframe flip*/
+    0%{/*initally the element is rorated 0deg*/
+      transform: rotateY(0deg) skew(20deg);
+    }
+    50%{/*at 30 sec it rotates 180deg (like mirror)*/
+      transform: rotateY(180deg) skew(20deg);
+    }
+    100%{/*at the end it also comes back to its original state*/
+      transform: rotateY(360deg) skew(20deg);
+    }
+  }
+  
